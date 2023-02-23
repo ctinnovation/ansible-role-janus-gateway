@@ -255,10 +255,10 @@ media: {
 # be used for gathering candidates, and enable or disable the
 # internal libnice debugging, if needed.
 nat: {
-	#stun_server = "stun.l.google.com"
-	stun_port = 19302
+	stun_server = "{{ janus_conf_var['janus']['stun_server_fqdn'] }}"
+	stun_port = {{ janus_conf_var['janus']['stun_server_port'] }}
 	nice_debug = false
-	full_trickle = true
+	full_trickle = {{ janus_conf_var['janus']['stun_server_full_trickle'] }}
 	#ice_nomination = "regular"
 	#ice_keepalive_conncheck = true
 	#ice_lite = true
@@ -271,7 +271,7 @@ nat: {
 	# helpful in case you know clients will never be in the same private
 	# network as the one the Janus instance is running from. Notice that
 	# this will cause ICE to fail if mDNS is the only way to connect!
-	#ignore_mdns = true
+	ignore_mdns = {{ janus_conf_var['janus']['ignore_mdns'] }}
 
 	# In case you're deploying Janus on a server which is configured with
 	# a 1:1 NAT (e.g., Amazon EC2), you might want to also specify the public
@@ -287,7 +287,7 @@ nat: {
 	# Multiple public IP addresses can be specified as a comma separated list
 	# if the Janus is deployed in a DMZ between two 1-1 NAT for internal and
 	# external users.
-	#nat_1_1_mapping = "1.2.3.4"
+	nat_1_1_mapping = "{{ janus_conf_var['janus']['nat_1_1_mapping'] }}"
 	#keep_private_host = true
 
 	# You can configure a TURN server in two different ways: specifying a
