@@ -53,7 +53,6 @@
       {{ janus_build_extras.websockets | ternary('', '--disable-websockets') }} \
       {{ janus_build_extras.nanomsg | ternary('', '--disable-nanomsg') }} \
       {{ janus_build_extras.systemd | ternary('--enable-systemd-sockets', '') }} \
-      {{ janus_build_extras.recordplay | ternary('', '--disable-plugin-recordplay') }} \
       {{ janus_build_extras.sip | ternary('', '--disable-plugin-sip') }}"
       
     chdir: "{{ janus_build_dir }}"
