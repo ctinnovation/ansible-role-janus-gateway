@@ -6,7 +6,7 @@ janus_build_extras:
   mqtt: false
   nanomsg: false
   rabbitmq: false
-  recordplay: false
+  recordplay: true
   sip: false
   systemd: true
   websockets: true
